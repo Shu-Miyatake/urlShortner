@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>URL Shortner</h1>
+    <form action="/api/shorturl" method = POST>
+        <label for="fullUrl">Url</label>
+        <input required placeholder="Url" type="text" name="fullUrl" id="fullUrl">
+        <button type="submit">Shrink</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Full URL</th>
+                <th>Short URL</th>
+                <th>uuid</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% urls.forEach(url => {%>
+            <tr>
+                <td><a href="<%=url.full%>"><%=url.full%></a></td>
+                <td><a href="<%=url.short%>"><%=url.short%></a></td>
+                <td><%= url.uuid%></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
